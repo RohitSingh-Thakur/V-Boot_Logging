@@ -1,0 +1,10 @@
+in config file if you declare 
+
+<root level="INFO">
+        <appender-ref ref="Console" />
+        <appender-ref ref="RollingFile" />
+    </root>
+
+this at then we will get exception because in logback, you need to define the appenders before referencing them in the root logger.
+
+first create appender lastly refer them

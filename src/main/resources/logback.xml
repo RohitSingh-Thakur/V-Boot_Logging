@@ -1,21 +1,21 @@
-<configuration>
+<!-- <configuration> Ashok SIR CODE
 	
-	  <!-- Set logging level for the root logger -->
+	  Set logging level for the root logger
 	  <root level="INFO">
 		<appender-ref ref="Console" />
 		<appender-ref ref="RollingFile" />
 	</root>
 	
-	   							 <!-- Define log appenders -->
+	   							 Define log appenders
 
-    <!-- Console Appender -->
+    Console Appender
 	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d [%thread] %-5level %-50logger{40} - %msg%n</pattern>
 		</encoder>
 	</appender>
 	
-	<!-- Rolling File Appender -->
+	Rolling File Appender
 	<appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>V-BootLog.log</file>
 		<encoder>
@@ -30,3 +30,33 @@
 	</appender>
 	
 </configuration>
+ -->
+ 
+ <!-- CHAT GPT --> 
+ <configuration>
+    <!-- Console Appender -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Rolling File Appender -->
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/application.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="info">
+        <appender-ref ref="Console" />
+        <appender-ref ref="RollingFile" />
+    </root>
+</configuration>
+ 
